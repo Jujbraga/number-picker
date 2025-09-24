@@ -1,9 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number Picker</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:wght@700&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="logo">
+      <img src="assets/logo.svg" alt="Numbers Logo" />
+    </div>
+
+    <header id="title">
+      <p class="overline">Online - Free</p>
+      <h1>Numbers Picker</h1>
+    </header>
+
+    <section class="numbers-draw">
+      <h2>I want to draw:</h2>
+      <p>
+        Set the range and number of numbers, click "Draw," and see the results
+        on the screen. It's quick and easy!
+      </p>
+
+      <form>
+        <div>
+          <fieldset>
+            <label for="numbers">Numbers</label>
+            <input type="text" name="numbers" id="numbers" />
+          </fieldset>
+          <fieldset>
+            <label for="from">from</label>
+            <input type="text" name="from" id="from" />
+          </fieldset>
+          <fieldset>
+            <label for="to">to</label>
+            <input type="text" name="to" id="to" />
+          </fieldset>
+        </div>
+        <div class="switch">
+          <input type="radio" name="no-repeat" id="no-repeat" />
+          <label for="no-repeat">Do not repeat number</label>
+        </div>
+        <button type="submit">Draw</button>
+      </form>
+    </section>
+
+    <section id="faq">
+      <div>
+        <img src="assets/question.svg" alt="person icon making a question" />
+        <div>
+          <p>How does the number picker work?</p>
+          <p>
+            The randomizer uses a random generation algorithm to create numbers
+            within the range specified by the user.
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="assets/question.svg" alt="person icon making a question" />
+        <div>
+          <p>Can I choose the range of numbers?</p>
+          <p>
+            Yes, you can set the minimum and maximum values ​​for the range of
+            drawn numbers.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
