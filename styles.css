@@ -24,7 +24,7 @@
   --display-medium: 800 2.5rem/1.3 "Sora", sans-serif;
   --display-small: 700 2rem/1.3 "Sora", sans-serif;
 
-  --p-md: 500 0.875/1.5 var(--ff-robot-flex);
+  --p-md: 500 0.875rem/1.5 var(--ff-robot-flex);
   --p-sm: 500 0.75rem/1.5 var(--ff-robot-flex);
   --label-lg: 700 1.25rem/1.5 var(--ff-robot-flex);
   --label-md: 700 1rem/1.5 var(--ff-robot-flex);
@@ -40,7 +40,6 @@ body {
   /* background: #020202 url(assets/background.png); */
   padding: 2.75rem 2.1875rem;
   height: 100%;
-  overflow: hidden;
 
   color: #c7c9cc;
   font: 500 1rem/1.5 var(--ff-robot-flex);
@@ -61,12 +60,12 @@ h2 {
 
 header,
 section {
-  max-width: 31.75rem;
+  max-width: 30.125rem;
 }
 
 .logo {
   grid-area: logo;
-  margin-block: 2.75rem;
+  margin-bottom: 2.75rem;
   text-align: center;
 }
 
@@ -82,13 +81,13 @@ section {
 
 .numbers-draw {
   grid-area: draw;
-  margin-top: 2rem;
 
   & form {
     margin-block: 2.5rem;
 
     & > div {
       display: flex;
+      align-items: center;
       gap: 1.75rem;
       flex-wrap: wrap;
       max-width: 320px;
@@ -118,8 +117,49 @@ section {
       }
     }
 
-    & .swtich {
+    & .switch-wrapper {
       font: 400 0.75rem/1.5 var(--ff-robot-flex);
+      position: relative;
+      gap: 0.5rem;
+
+      & input[type="checkbox"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        width: 1.875rem;
+        height: 1.25rem;
+      }
+
+      & .switch {
+        width: 1.875rem;
+        height: 1.25rem;
+        /* background: var(--gradient-content); */
+        background: #d9d9d9;
+        border-radius: 1rem;
+      }
+
+      & .switch::before {
+        position: absolute;
+        content: "";
+        width: 0.875rem;
+        height: 0.875rem;
+        top: calc(50% - (0.875rem / 2));
+        left: 3px;
+        background: var(--content-primary);
+        border-radius: 1rem;
+      }
+
+      &:has(:checked) {
+        & .switch {
+          background: var(--gradient-background);
+        }
+
+        & .switch::before {
+          -webkit-transform: translateX(calc(0.875rem - 4px));
+          -ms-transform: translateX(calc(0.875rem - 4px));
+          transform: translateX(calc(0.875rem - 4px));
+        }
+      }
     }
 
     & button {
@@ -143,6 +183,7 @@ section {
 
 #faq {
   grid-area: faq;
+  max-width: 24.125rem;
   margin-block: 2.375rem;
   display: grid;
   gap: 2.25rem;
@@ -154,15 +195,23 @@ section {
 
     & > div p:first-child {
       color: var(--content-brand);
+      font: var(--p-md);
+    }
+
+    & > div p:last-child {
+      font: var(--p-sm);
     }
   }
 }
 
-@media (width >= 60em) {
+@media (width >= 70em) {
   body {
     margin: 4.75rem 8.375rem;
     display: grid;
+    align-items: center;
+    column-gap: 5rem;
     grid-template-areas: "logo logo" "title draw" "faq draw";
+    overflow: hidden;
   }
 
   h1 {
