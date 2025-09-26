@@ -40,7 +40,7 @@ body {
       rgba(0, 0, 0, 0.9) 20%,
       rgba(0, 0, 0, 0.54) 100%
     ),
-    #020202 url(assets/background.png);
+    #020202 url(../assets/background.png);
   padding: 2.75rem 2.1875rem;
   height: 100%;
 
