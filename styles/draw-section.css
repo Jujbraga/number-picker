@@ -1,0 +1,147 @@
+.numbers-draw {
+  grid-area: draw;
+
+  & button {
+    margin-top: 2.5rem;
+    width: 100%;
+    overflow: hidden;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    background: var(--bg-tertiary);
+
+    color: var(--content-btn-color);
+    font: var(--label-md);
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    & span,
+    img {
+      z-index: 2;
+      color: var(--content-primary);
+    }
+
+    &:hover {
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      background: var(--gradient-border);
+      background-size: 150%;
+      animation: bgMove 7s linear infinite;
+
+      & img[src*="arrow"] {
+        animation: pulseToRight 3s ease infinite;
+      }
+
+      & img[src*="play"] {
+        --bg-animation: none;
+        animation: spin 3s ease infinite;
+      }
+    }
+
+    &::before {
+      content: "";
+      background: var(--bg-tertiary);
+      position: absolute;
+      inset: 1.6px;
+      border-radius: inherit;
+    }
+  }
+
+  & ul {
+    margin-block: 2.5rem;
+    list-style: none;
+    font: 700 3rem / 1 "Roboto Mono", monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & li {
+      width: 84px;
+      height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: var(--content-brand);
+      animation: appear 3s ease both;
+
+      &::before {
+        --bg-animation: #c58de7;
+        content: "";
+        width: 84px;
+        height: 84px;
+        position: absolute;
+        border-radius: 28px;
+        background: var(--content-brand);
+        z-index: -1;
+        animation: appear 3s ease forwards, spin 2s 0.5s ease-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: -180% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  10% {
+    opacity: 1;
+    scale: 1.1;
+    color: transparent;
+  }
+  80% {
+    scale: 1.1;
+    color: initial;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(360deg);
+    background-color: var(--bg-animation);
+  }
+  100% {
+    transform: rotate(360deg);
+    background-color: initial;
+  }
+}
+
+@keyframes pulseToRight {
+  0% {
+    translate: 0;
+  }
+  50% {
+    translate: 1.5rem;
+  }
+  100% {
+    translate: 0;
+  }
+}
