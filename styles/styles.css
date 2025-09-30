@@ -106,6 +106,10 @@ section {
   }
 }
 
+.hidden {
+  display: none;
+}
+
 @media (width >= 70em) {
   body {
     margin: 4.75rem 8.375rem;

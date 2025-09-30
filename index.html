@@ -25,49 +25,52 @@
     </header>
 
     <section class="numbers-draw">
-      <h2>I want to draw:</h2>
-      <p>
-        Set the range and number of numbers, click "Draw," and see the results
-        on the screen. It's quick and easy!
-      </p>
+      <div class="numbers-form">
+        <h2>I want to draw:</h2>
+        <p>
+          Set the range and number of numbers, click "Draw," and see the results
+          on the screen. It's quick and easy!
+        </p>
 
-      <form>
-        <div>
-          <fieldset>
-            <label for="numbers">Numbers</label>
-            <span>
-              <input
-                type="text"
-                name="numbers"
-                id="numbers"
-                value="2"
-                required
-              />
-            </span>
-          </fieldset>
-          <fieldset>
-            <label for="from">from</label>
-            <span>
-              <input type="text" name="from" id="from" value="1" required />
-            </span>
-          </fieldset>
-          <fieldset>
-            <label for="to">to</label>
-            <span>
-              <input type="text" name="to" id="to" value="100" required />
-            </span>
-          </fieldset>
-        </div>
-        <div class="switch-wrapper">
-          <span class="switch"></span>
-          <input type="checkbox" name="no-repeat" id="no-repeat" />
-          <label for="no-repeat">Do not repeat number</label>
-        </div>
-        <button type="submit" aria-label="Draw">
-          <span>Draw</span>
-          <img src="assets/arrow.svg" alt="go" />
-        </button>
-      </form>
+        <form>
+          <div>
+            <fieldset>
+              <label for="numbers">Numbers</label>
+              <span>
+                <input
+                  type="text"
+                  name="numbers"
+                  id="numbers"
+                  value="2"
+                  required
+                />
+              </span>
+            </fieldset>
+            <fieldset>
+              <label for="from">from</label>
+              <span>
+                <input type="text" name="from" id="from" value="1" required />
+              </span>
+            </fieldset>
+            <fieldset>
+              <label for="to">to</label>
+              <span>
+                <input type="text" name="to" id="to" value="100" required />
+              </span>
+            </fieldset>
+          </div>
+          <div class="switch-wrapper">
+            <span class="switch"></span>
+            <input type="checkbox" name="no-repeat" id="no-repeat" />
+            <label for="no-repeat">Do not repeat number</label>
+          </div>
+          <button type="submit" aria-label="Draw">
+            <span>Draw</span>
+            <img src="assets/arrow.svg" alt="go" />
+          </button>
+        </form>
+      </div>
+      <div class="result hidden"></div>
     </section>
 
     <section id="faq">
