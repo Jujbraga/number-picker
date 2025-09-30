@@ -78,7 +78,7 @@ function showResult(numbers) {
   drawSection.innerHTML = `<h2>Draw result</h2>
       <p class="overline">1º result</p>
       <ul class="numbers-list">
-      </ul>`;
+      </ul></div>`;
 
   // Select the list (ul) created
   const numbersList = document.querySelector(".numbers-list");
@@ -100,8 +100,9 @@ function showResult(numbers) {
   // Create button AFTER all numbers appear
   setTimeout(function () {
     const buttonDrawAgain = document.createElement("button");
+    const resultSection = document.querySelector(".result");
     buttonDrawAgain.innerHTML = `<span>Draw Again</span><img src="assets/play.svg" />`;
-    drawSection.appendChild(buttonDrawAgain);
+    resultSection.appendChild(buttonDrawAgain);
     buttonDrawAgain.onclick = restoreForm;
   }, delay * results.length);
 }

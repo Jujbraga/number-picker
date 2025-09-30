@@ -1,10 +1,13 @@
 .numbers-draw {
   grid-area: draw;
 
+  .result {
+    min-height: clamp(18.38rem, 45vw, 23.5rem);
+  }
+
   & button {
     margin-top: 2.5rem;
     width: 100%;
-    overflow: hidden;
     height: 3.5rem;
     border-radius: 0.5rem;
     background: var(--bg-tertiary);
@@ -75,7 +78,7 @@
       animation: appear 3s ease both;
 
       &::before {
-        --bg-animation: #c58de7;
+        --bg-animation: var(--content-brand);
         content: "";
         width: 84px;
         height: 84px;
