@@ -33,13 +33,20 @@ function setFormEvents() {
       to: Number(toNumber.value),
     };
 
-    drawNumbers(newDraw.quantity, newDraw.from, newDraw.to);
+    // Prevents error
+    if (newDraw.from > newDraw.to) {
+      alert("The initial number cannot be bigger than the final number");
+    } else if (newDraw.quantity > newDraw.to) {
+      alert(
+        "Is not possible to get this quantity of numbers from this range. Please change the parameters!"
+      );
+    } else {
+      drawNumbers(newDraw.quantity, newDraw.from, newDraw.to);
+    }
   };
 }
 
 setFormEvents();
-
-function onlyPositiveNumber() {}
 
 function drawNumbers(quantity, from, to) {
   let randomNubers = [];
