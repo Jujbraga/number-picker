@@ -4,6 +4,7 @@ const inputNumber = document.getElementById("numbers");
 const fromNumber = document.getElementById("from");
 const toNumber = document.getElementById("to");
 const uniqueNumber = document.querySelector("#no-repeat");
+const drawSection = document.querySelector(".numbers-draw");
 
 function setFormEvents() {
   // Format input to accept just numbers
@@ -63,7 +64,48 @@ function drawNumbers(quantity, from, to) {
     randomNubers.push(getRandomNumber());
   }
 
-  return randomNubers;
+  showResult(randomNubers);
 }
 
 // Show the draw result
+function showResult(numbers) {
+  let results = numbers;
+
+  drawSection.style.textAlign = "center";
+  drawSection.style.width = "clamp(20rem, 35vw, 30.125rem)";
+
+  // Create new elements inside div
+  drawSection.innerHTML = `<h2>Draw result</h2>
+      <p class="overline">1º result</p>
+      <ul class="numbers-list">
+      </ul>`;
+
+  // Select the list (ul) created
+  const numbersList = document.querySelector(".numbers-list");
+
+  let delay = 3000;
+  let index = 0;
+
+  // Create a li inside the ul with each number
+  for (let result of results) {
+    //Delay the creation of each item
+    setTimeout(function () {
+      let numbersItem = document.createElement("li");
+      numbersItem.textContent = result;
+      numbersList.appendChild(numbersItem);
+    }, delay * index);
+    index++;
+  }
+
+  // Create button AFTER all numbers appear
+  setTimeout(function () {
+    const buttonDrawAgain = document.createElement("button");
+    buttonDrawAgain.innerHTML = `<span>Draw Again</span><img src="assets/play.svg" />`;
+    drawSection.appendChild(buttonDrawAgain);
+    buttonDrawAgain.onclick = restoreForm;
+  }, delay * results.length);
+}
+
+function restoreForm() {
+  console.log("click");
+}
